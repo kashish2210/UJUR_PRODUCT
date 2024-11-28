@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Page</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <div>
+        {% for product in products %}
+        <div>
+            <img src="{{ product.image }}" alt="{{ product.name }}" style="width:100px;height:100px;">
+            <p>{{ product.name }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <form method="POST" action="{% url 'add_to_cart' %}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <input type="number" name="quantity" value="1" min="1">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

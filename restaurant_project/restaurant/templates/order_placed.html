@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Order Placed{% endblock %}
+{% block content %}
+<div class="text-center">
+    <h2>Your order has been placed!</h2>
+    <p>Thank you for shopping with us.</p>
+    <a href="{% url 'customer_dashboard' %}" class="btn btn-primary">Back to Dashboard</a>
+</div>
+{% endblock %}
